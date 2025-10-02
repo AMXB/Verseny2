@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SportVersenyApp/1.0.0": {
+        "runtime": {
+          "SportVersenyApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SportVersenyApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

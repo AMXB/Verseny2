@@ -1,0 +1,63 @@
+﻿<Window x:Class="SportVersenyApp.VersenyekWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Versenyek Kezelése" Height="500" Width="700">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Verseny neve:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtVersenyNev" Width="200" Margin="0,0,10,0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="cmbCsapat1" Grid.Column="0" DisplayMemberPath="Nev"
+                     Margin="0,0,10,0"/>
+            <TextBlock Grid.Column="1" Text="vs" VerticalAlignment="Center" 
+                      HorizontalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="cmbCsapat2" Grid.Column="2" DisplayMemberPath="Nev"
+                     Margin="0,0,10,0"/>
+            <ComboBox x:Name="cmbEredmeny" Grid.Column="3" Width="100"
+                     Margin="0,0,10,0">
+                <ComboBoxItem Content="Csapat 1 győz"/>
+                <ComboBoxItem Content="Döntetlen"/>
+                <ComboBoxItem Content="Csapat 2 győz"/>
+            </ComboBox>
+            <Button Grid.Column="4" Content="Verseny hozzáadása" Click="VersenyHozzaadas_Click"/>
+        </Grid>
+
+        <DataGrid x:Name="dgVersenyek" Grid.Row="2" AutoGenerateColumns="False" 
+                 CanUserAddRows="False" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Verseny név" Binding="{Binding Nev}" Width="*"/>
+                <DataGridTextColumn Header="Csapat 1" Binding="{Binding Csapat1.Nev}" Width="120"/>
+                <DataGridTextColumn Header="Csapat 2" Binding="{Binding Csapat2.Nev}" Width="120"/>
+                <DataGridTextColumn Header="Eredmény" Binding="{Binding Eredmeny}" Width="100"/>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Törlés" Click="Torles_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Bezárás" Click="Bezaras_Click" Margin="0,0,10,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

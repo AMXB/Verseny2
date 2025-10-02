@@ -1,0 +1,58 @@
+﻿<Window x:Class="SportVersenyApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sportverseny App" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="Adatkezelés">
+                <MenuItem Header="Csapatok" Click="Csapatok_Click"/>
+                <MenuItem Header="Játékosok" Click="Jatekosok_Click"/>
+                <MenuItem Header="Versenyek" Click="Versenyek_Click"/>
+            </MenuItem>
+            <MenuItem Header="Eredmények" Click="Eredmenyek_Click"/>
+        </Menu>
+
+        <StackPanel Grid.Row="1" Margin="20">
+            <TextBlock Text="Sportverseny Kezelő" FontSize="24" FontWeight="Bold" 
+                      HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Üdvözöljük a Sportverseny Alkalmazásban!" 
+                      FontSize="16" Margin="0,0,0,20"/>
+
+            <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Statisztika" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Csapatok száma:" FontWeight="SemiBold"/>
+                            <TextBlock x:Name="tbCsapatokSzama" Text="0"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="Játékosok száma:" FontWeight="SemiBold"/>
+                            <TextBlock x:Name="tbJatekosokSzama" Text="0"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Versenyek száma:" FontWeight="SemiBold"/>
+                            <TextBlock x:Name="tbVersenyekSzama" Text="0"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem Content="Kész: Sportverseny App"/>
+        </StatusBar>
+    </Grid>
+</Window>

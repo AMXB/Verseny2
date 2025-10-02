@@ -1,0 +1,43 @@
+﻿<Window x:Class="SportVersenyApp.JatekosokWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Játékosok Kezelése" Height="450" Width="700">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Játékos neve:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtJatekosNev" Width="150" Margin="0,0,10,0"/>
+            <TextBlock Text="Mezszám:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtMezszam" Width="80" Margin="0,0,10,0"/>
+            <TextBlock Text="Csapat:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="cmbCsapat" DisplayMemberPath="Nev" Width="150" Margin="0,0,10,0"/>
+            <Button Content="Hozzáadás" Click="Hozzaadas_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgJatekosok" Grid.Row="2" AutoGenerateColumns="False" 
+                 CanUserAddRows="False" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név" Binding="{Binding Nev}" Width="*"/>
+                <DataGridTextColumn Header="Mezszám" Binding="{Binding Mezszam}" Width="80"/>
+                <DataGridTextColumn Header="Csapat" Binding="{Binding Csapat.Nev}" Width="150"/>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Törlés" Click="Torles_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Bezárás" Click="Bezaras_Click" Margin="0,0,10,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
